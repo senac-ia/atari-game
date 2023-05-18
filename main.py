@@ -12,14 +12,17 @@ env = gymnasium.make("ALE/Tennis-v5", render_mode="human", obs_type="ram")
 ambiente, info = env.reset(seed=42)
 
 def convert(n):
-  out = 0
+  out = ""
   # https://realpython.com/python-bitwise-operators/
-  for bit in n:
-    out = (out << 1) | bit
+  for byte in n:
+    out = out + format(byte, 'X')
+    # for bit in byte:
+    #   out = (out << 1) | bit
   return out
 
 ambiente_txt = "Ambiente [%s]" % convert(ambiente)
-print(ambiente_txt, "Tamanho: " + str(len(ambiente)))
+print(ambiente_txt)
+# # print(ambiente_txt, "Tamanho: " + str(len(ambiente)))
 
 while True:
   # definição da política
