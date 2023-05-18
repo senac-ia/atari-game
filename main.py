@@ -12,7 +12,7 @@ env = gymnasium.make("ALE/Tennis-v5", render_mode="human", obs_type="ram")
 ambiente, info = env.reset(seed=42)
 
 def convert(n):
-  out = 1
+  out = 0
   # https://realpython.com/python-bitwise-operators/
   for bit in n:
     out = (out << 1) | bit
